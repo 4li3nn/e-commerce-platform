@@ -4,7 +4,7 @@ import {juggler} from '@loopback/repository';
 const config = {
   name: 'Mongo',
   connector: 'mongodb',
-  url: 'mongodb+srv://alien:ED2bzNhvnlOG3N5x@alien.77u7gvp.mongodb.net/3-commerce',
+  url: 'mongodb+srv://alien:ED2bzNhvnlOG3N5x@alien.77u7gvp.mongodb.net/e-commerce',
 
 };
 
