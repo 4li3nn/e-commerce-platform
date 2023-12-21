@@ -1,0 +1,70 @@
+
+@startuml classDiagram
+
+class User{
+  username: String
+  password: String
+  address: String
+  phoneNumber: String
+  email: String
+}
+
+class Agency {
+  role: String
+  product: Product
+  CRUD Product()
+}
+
+class Customer {
+  role: String
+  cart: Cart
+  CRUD Cart()
+  CRUD Billing()
+  CRUD Transaction()
+}
+
+class Admin {
+  role: String
+  CRUD Agency()
+  CRUD Customer()
+}
+
+class Cart {
+  items: Product[]
+  totalPrice: Number
+}
+
+class Product {
+  name: String
+  price: Number
+}
+
+class Transaction {
+  date: Date
+  total: Number
+  customer: Customer
+  agency: Agency
+  billing: Billing
+}
+
+class Billing {
+  customerId: String
+  productId: String
+  total: Number
+  date: Date
+}
+
+Customer --|> User : extends
+Agency --|> User : extends
+Admin --|> User : extends
+Cart "*" -- "*" Product 
+Customer "1" -- "1" Cart
+Agency "1" *-- "*" Product 
+Transaction "1" -- "1" Customer
+Transaction "1" -- "1" Agency
+Billing "1" --* "1" Transaction
+Billing "1" -- "*" Product
+
+
+
+@enduml
