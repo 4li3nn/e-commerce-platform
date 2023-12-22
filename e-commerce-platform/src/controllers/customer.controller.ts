@@ -119,6 +119,8 @@ export class CustomerController {
     return currentUserProfile[securityId];
   }
 
+  
+
   @post('/customer/register', {
     responses: {
       '200': {

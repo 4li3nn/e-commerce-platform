@@ -16,6 +16,7 @@ import {
   UserServiceBindings,
 } from '@loopback/authentication-jwt';
 import {MongoDataSource} from './datasources';
+import {UserRepository} from '@loopback/authentication-jwt';
 
 export {ApplicationConfig};
 
@@ -50,5 +51,7 @@ export class ECommercePlatformApplication extends BootMixin(
     this.component(AuthenticationComponent);
     this.component(JWTAuthenticationComponent);
     this.dataSource(MongoDataSource, UserServiceBindings.DATASOURCE_NAME);
+    this.bind('repositories.UserRepository').toClass(UserRepository);
+
   }
 }

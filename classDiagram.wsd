@@ -32,19 +32,20 @@ class Admin {
 class Cart {
   items: Product[]
   totalPrice: Number
+  customerId: String
 }
 
 class Product {
   name: String
   price: Number
+  agencyId: String
 }
 
 class Transaction {
   date: Date
   total: Number
-  customer: Customer
-  agency: Agency
-  billing: Billing
+  customerId: String
+  agencyId: String
 }
 
 class Billing {
@@ -52,6 +53,7 @@ class Billing {
   productId: String
   total: Number
   date: Date
+  transactionId: String
 }
 
 Customer --|> User : extends

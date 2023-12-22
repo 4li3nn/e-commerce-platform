@@ -106,7 +106,7 @@ export class AgencyController {
     const user = await this.userService.verifyCredentials(credentials);
     console.log('user: ', user);
     if (user.role !== 'agency') {
-      return Promise.reject('User is not an agency');
+      return {token: ''};
     }
     // convert a User object into a UserProfile object (reduced set of properties)
     const userProfile = this.userService.convertToUserProfile(user);

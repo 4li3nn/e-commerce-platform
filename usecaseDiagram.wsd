@@ -1,0 +1,27 @@
+@startuml usecase
+
+actor Customer
+actor Agency
+actor Admin
+
+Customer --> (View Products)
+Customer --> (Add Product to Cart)
+Customer --> (Remove Product from Cart)
+Customer --> (View Transaction History)
+Customer --> (View Billing Information)
+
+Agency --> (Add Product)
+Agency --> (Update Product)
+Agency --> (Remove Product)
+Agency --> (View Transactions)
+
+Admin --> (Read Agency)
+Admin --> (Create Agency)
+Admin --> (Update Agency)
+Admin --> (Delete Agency)
+Admin --> (Read Customer)
+Admin --> (Read Product)
+Admin --> (Read Transaction)
+Admin --> (Read Billing)  
+
+@enduml
