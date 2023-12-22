@@ -1,0 +1,95 @@
+	
+@startuml sequenceDiagram
+actor       Customer
+actor       Agency
+actor       Admin
+participant Server
+database    Database   
+
+Customer -> Server: Register
+Server -> Database: Register Customer
+Database --> Server: Register Status
+Server --> Customer: Register Status
+
+
+Customer -> Server: Login
+Server -> Database: Check  credentials
+Database --> Server: Login Status
+Server --> Customer: token
+
+Customer -> Server: Get cart link customerId
+Server -> Database: Get cart link customerId
+Database --> Server: Cart
+Server --> Customer: Cart
+
+Customer -> Server: Add product to cart
+Server -> Database: Add product to cart
+Database --> Server: add product to cart status
+Server --> Customer: add product to cart status
+
+Customer -> Server: Remove product from cart
+Server -> Database: Remove product from cart
+Database --> Server: remove product from cart status
+Server --> Customer: remove product from cart status
+
+Customer -> Server: Get information agency
+Server -> Database: Get information agency
+Database --> Server: Information agency
+Server --> Customer: Information agency
+
+Agency -> Server: Register
+Server -> Database: Register Agency
+Database --> Server: Register Status
+Server --> Agency: Register Status
+
+
+Agency -> Server: Login
+Server -> Database: Check  credentials
+Database --> Server: Login Status
+Server --> Agency: token
+
+Agency -> Server: Add product
+Server -> Database: Add product
+Database --> Server: add product status
+Server --> Agency: add product status
+
+Agency -> Server: Remove product
+Server -> Database: Remove product
+Database --> Server: remove product status
+Server --> Agency: remove product status
+
+Agency -> Server: Update product
+Server -> Database: Update product
+Database --> Server: update product status
+Server --> Agency: update product status
+
+Agency ->  Server: Get owner products
+Server -> Database: Get products with agencyId
+Database --> Server: owner products 
+Server --> Agency: owner products
+
+
+
+
+Admin -> Server: Get all products
+Server -> Database: Get all products
+Database --> Server: All products
+Server --> Admin: All products
+
+Admin -> Server: Get all customers
+Server -> Database: Get all customers
+Database --> Server: All customers
+Server --> Admin: All customers
+
+Admin -> Server: Get all agencies
+Server -> Database: Get all agencies
+Database --> Server: All agencies
+Server --> Admin: All agencies
+
+
+
+
+
+
+
+@enduml
